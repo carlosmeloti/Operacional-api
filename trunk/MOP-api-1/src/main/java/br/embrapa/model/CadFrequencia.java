@@ -10,20 +10,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="d06_amostragem_m")
-public class CadAmostragem {
+@Table(name="d08_frequencia_m")
+public class CadFrequencia {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="d06_cdamostragem")
+	@Column(name="d08_cdfrequencia")
 	private Long codigo;
 	
 	@ManyToOne
-	@JoinColumn(name="d06_cdempresa")
+	@JoinColumn(name="d08_cdempresa")
 	private CadEmpresa cadEmpresa;
 	
-	@Column(name="d06_nmamostragem")
-	private String nmamostragem;
+	@Column(name="d08_nmfrequencia")
+	private String nmFrequencia;
 
 	public Long getCodigo() {
 		return codigo;
@@ -41,12 +41,12 @@ public class CadAmostragem {
 		this.cadEmpresa = cadEmpresa;
 	}
 
-	public String getNmamostragem() {
-		return nmamostragem;
+	public String getNmFrequencia() {
+		return nmFrequencia;
 	}
 
-	public void setNmamostragem(String nmamostragem) {
-		this.nmamostragem = nmamostragem;
+	public void setNmFrequencia(String nmFrequencia) {
+		this.nmFrequencia = nmFrequencia;
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class CadAmostragem {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CadAmostragem other = (CadAmostragem) obj;
+		CadFrequencia other = (CadFrequencia) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -73,6 +73,8 @@ public class CadAmostragem {
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 	

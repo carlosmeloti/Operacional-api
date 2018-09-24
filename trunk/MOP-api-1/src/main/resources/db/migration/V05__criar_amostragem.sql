@@ -1,5 +1,5 @@
 CREATE TABLE d06_amostragem_m(
-	d06_cd_amostragem BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
+	d06_cdamostragem BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
 	d06_cdempresa BIGINT(20),
 	d06_nmamostragem VARCHAR(200),
 
