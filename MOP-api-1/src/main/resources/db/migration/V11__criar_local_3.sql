@@ -4,12 +4,13 @@
 	d05_cdlocal2 BIGINT(20),
 	d05_cdlocal3 BIGINT(20),
 	d05_nmlocal3 VARCHAR(200),
+	
+INDEX `fk_d04_local2_m_d05_local3_m_idx` (`d05_cdlocal2` ASC),
 
-CONSTRAINT d05_local3_m
-PRIMARY KEY (d05_cdempresa, d05_cdlocal1,d05_cdlocal2,d05_cdlocal2),
+PRIMARY KEY (d05_cdempresa, d05_cdlocal1,d05_cdlocal2,d05_cdlocal3),
 FOREIGN KEY(d05_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
 FOREIGN KEY(d05_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1),
-FOREIGN KEY(d05_cdlocal2) REFERENCES d04_local2_m(d04_cdlocal2)
+FOREIGN KEY(`d05_cdlocal2`) REFERENCES `d04_local2_m` (`d04_cdlocal2`)
 
 ) Engine=InnoDB;
 
