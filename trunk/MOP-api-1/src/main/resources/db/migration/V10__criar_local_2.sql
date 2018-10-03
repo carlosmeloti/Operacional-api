@@ -1,12 +1,14 @@
 CREATE TABLE d04_local2_m(
 	d04_cdempresa BIGINT(20),
 	d04_cdlocal1 BIGINT(20),
-	d04_cdlocal2 BIGINT(20) PRIMARY KEY,
+	d04_cdlocal2 BIGINT(20),
 	d04_nmlocal2 VARCHAR(200),
 
+PRIMARY KEY (d04_cdempresa, d04_cdlocal1,d04_cdlocal2),
 FOREIGN KEY(d04_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
 FOREIGN KEY(d04_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1)
-);
+
+) Engine=InnoDB;
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 1, 0, '-');
 
