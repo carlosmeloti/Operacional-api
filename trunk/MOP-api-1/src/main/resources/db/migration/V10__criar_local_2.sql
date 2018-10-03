@@ -4,7 +4,9 @@ CREATE TABLE d04_local2_m(
 	d04_cdlocal2 BIGINT(20),
 	d04_nmlocal2 VARCHAR(200),
 
-PRIMARY KEY (d04_cdempresa, d04_cdlocal1,d04_cdlocal2),
+INDEX `fk_d05_local3_m_d04_local2_m_idx` (`d04_cdlocal2` ASC),
+
+PRIMARY KEY (d04_cdempresa,d04_cdlocal1,d04_cdlocal2),
 FOREIGN KEY(d04_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
 FOREIGN KEY(d04_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1)
 
@@ -12,7 +14,7 @@ FOREIGN KEY(d04_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1)
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 1, 0, '-');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 1, 1, 'Picadas do inventário');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 1, 1, 'Picadas do inventï¿½rio');
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 1, 2, 'Derruba');
 
@@ -22,23 +24,23 @@ INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 0, '-');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 1, 'Todo o pátio');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 1, 'Todo o pï¿½tio');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 2, 'Bordas do pátio');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 2, 'Bordas do pï¿½tio');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 3, 'Saída do pátio');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 3, 3, 'Saï¿½da do pï¿½tio');
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 4, 0, '-');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 4, 1, 'Todo o pátio');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 4, 1, 'Todo o pï¿½tio');
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 5, 0, '-');
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 5, 1, 'Estradas principais e de acesso');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 5, 2, 'Estradas secundárias');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 5, 2, 'Estradas secundï¿½rias');
 
-INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 5, 3, 'Toda malha viária');
+INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 5, 3, 'Toda malha viï¿½ria');
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 6, 0, '-');
 
