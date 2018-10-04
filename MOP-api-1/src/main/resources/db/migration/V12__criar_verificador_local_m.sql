@@ -10,18 +10,15 @@ CREATE TABLE r15_verificador_local_m (
 	r15_cdfrequencia BIGINT(20),
 	r15_cdamostragem BIGINT(20),
 	
-			
-FOREIGN KEY(r15_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
-FOREIGN KEY(r15_cdverificador) REFERENCES p01_verificador_m(p01_cdverificador_m),
-FOREIGN KEY(r15_cdtipoverificador) REFERENCES d02_tipo_verificador(d02_cdtipoverificador),
-FOREIGN KEY(r15_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1),
-FOREIGN KEY(r15_cdlocal2) REFERENCES d04_local2_m(d04_cdlocal2),
-FOREIGN KEY(r15_cdlocal3) REFERENCES d05_local3_m(d05_cdlocal3),
-FOREIGN KEY(r15_cdtipodemetodo) REFERENCES d02_tipo_verificador(d02_cdtipoverificador),
-FOREIGN KEY(r15_cdfrequencia) REFERENCES d08_frequencia_m(d08_cdfrequencia),
-FOREIGN KEY(r15_cdamostragem) REFERENCES d06_amostragem_m(d06_cdamostragem)
+INDEX `fk_d05_local3_m_r15_verificador_local_m_idx` (`d05_cdempresa`,  ASC, `d05_cdlocal1`,  ASC, `d05_cdlocal2`,  ASC, `d05_cdlocal3`,  ASC),	
+INDEX `fk_d06_amostragem_m_r15_verificador_local_m_idx` (`d06_cdempresa`,  ASC, `d06_cdamostragem`,  ASC),
+INDEX `fk_d07_tipo_metodo_m_r15_verificador_local_m_idx` (`d07_cdempresa`,  ASC, `d07_cdtipometodo`,  ASC),
+INDEX `fk_d08_frequencia_m_r15_verificador_local_m_idx` (`d08_cdempresa`,  ASC, `d08_cdfrequencia`,  ASC),
+INDEX `fk_p01_verificador_m_verificador_local_m_idx` (`p01_cdempresa`,  ASC, `p01_cdverificador`,  ASC, `p01_cdtipoverificador`,  ASC),
 
-);
+	
+
+) Engine=InnoDB;
 
 INSERT INTO r15_verificador_local_m (r15_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco) VALUES(1, 1, 1, 2, 1, 2, 1, 'Checar se a legenda mostra todos os aspectos listados e verificar sua colocação no mapa. O mapa deve mostrar todas as informações listadas, salvo casos em que parte da infra-estrutura esteja em planejamento (ex: localização da sede no Plano de Manejo) ou casos justificados de dificuldade de plotagem no mapa.', 8, 3);
 INSERT INTO r15_verificador_local_m (r15_cdempresa, p01_cdverificador, p01_cdtipoverificador, p01_codalfa, p01_cdnivelavaliacao, p01_nmverificador, p01_limiar, p01_graco) VALUES(1, 1, 2, 2, 1, 2, 1, 'Checar se a legenda mostra todos os aspectos listados e verificar sua colocação no mapa. O mapa deve mostrar todas as informações listadas, salvo casos em que parte da infra-estrutura esteja em planejamento (ex: localização da sede no Plano de Manejo) ou casos justificados de dificuldade de plotagem no mapa.', 8, 3);
