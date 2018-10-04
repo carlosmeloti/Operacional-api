@@ -1,10 +1,10 @@
-CREATE TABLE d04_local2_m(
+﻿CREATE TABLE d04_local2_m(
 	d04_cdempresa BIGINT(20),
 	d04_cdlocal1 BIGINT(20),
 	d04_cdlocal2 BIGINT(20),
 	d04_nmlocal2 VARCHAR(200),
 
-INDEX `fk_d05_local3_m_d04_local2_m_idx` (`d04_cdlocal2` ASC),
+
 
 PRIMARY KEY (d04_cdempresa,d04_cdlocal1,d04_cdlocal2),
 FOREIGN KEY(d04_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
