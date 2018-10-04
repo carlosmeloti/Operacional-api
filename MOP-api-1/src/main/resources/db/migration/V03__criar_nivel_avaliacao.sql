@@ -1,16 +1,19 @@
 CREATE TABLE d20_nivel_avaliacao (
 
-	d20_cdnivelavaliacao BIGINT(20) PRIMARY KEY AUTO_INCREMENT,	
+	d20_cdnivelavaliacao BIGINT(20) AUTO_INCREMENT,	
 	d20_nmnivelavaliacao VARCHAR(50),
 	d20_sigla VARCHAR(20),
-	d20_txdescricao VARCHAR(255)	
-);
+	d20_txdescricao VARCHAR(255),
+	
+	PRIMARY KEY (d20_cdnivelavaliacao)
+		
+)Engine=InnoDB;
 
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Ação corretiva próxima safra','AC/PS','Providências relacionadas ao verificador que devem ser cumpridas até a próxima safra.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Ação corretiva urgente (60)','AC60','Providências relacionadas ao verificador que devem ser cumpridas em um prazo máximo de 60 dias.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Ação corretiva urgente (30)','AC30','Providências relacionadas ao verificador que devem ser cumpridas em um prazo máximo de 30 dias.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Sujeito a suspensão','SS','Não conformidade que implica em suspensão do PMFS.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Sujeito a cancelamento','SC','Não conformidades tão graves que implica em cancelamento do PMFS.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Recomendação','R','Recomendação relacionada à execução do PMFS, que não implica em ação corretiva ou sanção administrativa.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Nenhuma ação corretiva','NAC','O verificador foi atendido em sua totalidade, não sendo aplicável nenhuma ação corretiva ou sanção.');
-INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Não se aplica / Não avaliado','NA','O verificador não se aplica, no momento da vistoria, ou não foi avaliado.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Aï¿½ï¿½o corretiva prï¿½xima safra','AC/PS','Providï¿½ncias relacionadas ao verificador que devem ser cumpridas atï¿½ a prï¿½xima safra.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Aï¿½ï¿½o corretiva urgente (60)','AC60','Providï¿½ncias relacionadas ao verificador que devem ser cumpridas em um prazo mï¿½ximo de 60 dias.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Aï¿½ï¿½o corretiva urgente (30)','AC30','Providï¿½ncias relacionadas ao verificador que devem ser cumpridas em um prazo mï¿½ximo de 30 dias.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Sujeito a suspensï¿½o','SS','Nï¿½o conformidade que implica em suspensï¿½o do PMFS.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Sujeito a cancelamento','SC','Nï¿½o conformidades tï¿½o graves que implica em cancelamento do PMFS.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Recomendaï¿½ï¿½o','R','Recomendaï¿½ï¿½o relacionada ï¿½ execuï¿½ï¿½o do PMFS, que nï¿½o implica em aï¿½ï¿½o corretiva ou sanï¿½ï¿½o administrativa.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Nenhuma aï¿½ï¿½o corretiva','NAC','O verificador foi atendido em sua totalidade, nï¿½o sendo aplicï¿½vel nenhuma aï¿½ï¿½o corretiva ou sanï¿½ï¿½o.');
+INSERT INTO d20_nivel_avaliacao (d20_nmnivelavaliacao, d20_sigla, d20_txdescricao) VALUES ('Nï¿½o se aplica / Nï¿½o avaliado','NA','O verificador nï¿½o se aplica, no momento da vistoria, ou nï¿½o foi avaliado.');
