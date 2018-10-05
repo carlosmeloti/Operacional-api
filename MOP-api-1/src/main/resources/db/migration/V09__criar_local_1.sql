@@ -1,8 +1,9 @@
 CREATE TABLE d03_local1_m(
-	d03_cdlocal1 BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
+	d03_cdlocal1 BIGINT(20) AUTO_INCREMENT,
 	d03_cdempresa BIGINT(20),
 	d03_nmlocal1 VARCHAR(200),
 
+PRIMARY KEY(d03_cdlocal1),
 FOREIGN KEY(d03_cdempresa) REFERENCES d24_empresa(d24_cdempresa)
 );
 

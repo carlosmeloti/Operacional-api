@@ -1,4 +1,4 @@
-CREATE TABLE p01_verificador_m (
+﻿CREATE TABLE p01_verificador_m (
 	
 	p01_cdempresa BIGINT(20),
 	p01_cdverificador BIGINT(20),
@@ -8,6 +8,8 @@ CREATE TABLE p01_verificador_m (
 	p01_nmverificador VARCHAR(1000),
 	p01_limiar VARCHAR(1000),
 	p01_graco NUMERIC(5,2),
+
+PRIMARY KEY(p01_cdempresa, p01_cdverificador, p01_cdtipoverificador),
 
 FOREIGN KEY (p01_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
 FOREIGN KEY (p01_cdtipoverificador) REFERENCES d02_tipo_verificador(d02_cdtipoverificador),
