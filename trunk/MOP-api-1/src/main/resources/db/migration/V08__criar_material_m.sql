@@ -1,9 +1,9 @@
-CREATE TABLE d09_material_m(
-	d09_cdmaterial BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
+﻿CREATE TABLE d09_material_m(
+	d09_cdmaterial BIGINT(20) AUTO_INCREMENT,
 	d09_cdempresa BIGINT(20),
 	d09_nmmaterial VARCHAR(200),
 
-FOREIGN KEY(d09_cdempresa) REFERENCES d24_empresa(d24_cdempresa)
+PRIMARY KEY(d09_cdmaterial)
 );
 
 INSERT INTO d09_material_m (d09_cdempresa, d09_nmmaterial) VALUES('1', 'GPS');

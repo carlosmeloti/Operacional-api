@@ -1,9 +1,11 @@
-CREATE TABLE d20_nivel_avaliacao (
+﻿CREATE TABLE d20_nivel_avaliacao (
 
 	d20_cdnivelavaliacao BIGINT(20) AUTO_INCREMENT,	
 	d20_nmnivelavaliacao VARCHAR(50),
 	d20_sigla VARCHAR(20),
 	d20_txdescricao VARCHAR(255),
+	
+	
 	
 	PRIMARY KEY (d20_cdnivelavaliacao)
 		

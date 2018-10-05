@@ -7,8 +7,7 @@
 
 
 PRIMARY KEY (d04_cdempresa,d04_cdlocal1,d04_cdlocal2),
-FOREIGN KEY(d04_cdempresa) REFERENCES d24_empresa(d24_cdempresa),
-FOREIGN KEY(d04_cdlocal1) REFERENCES d03_local1_m(d03_cdlocal1)
+FOREIGN KEY(d04_cdempresa, d04_cdlocal1) REFERENCES d03_local1_m(d03_cdempresa, d03_cdlocal1)
 
 ) Engine=InnoDB;
 

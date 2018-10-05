@@ -10,13 +10,11 @@ CREATE TABLE r15_verificador_local_m (
 	r15_cdfrequencia BIGINT(20),
 	r15_cdamostragem BIGINT(20),
 	
-INDEX `fk_d05_local3_m_r15_verificador_local_m_idx` (`d05_cdempresa`,  ASC, `d05_cdlocal1`,  ASC, `d05_cdlocal2`,  ASC, `d05_cdlocal3`,  ASC),	
-INDEX `fk_d06_amostragem_m_r15_verificador_local_m_idx` (`d06_cdempresa`,  ASC, `d06_cdamostragem`,  ASC),
-INDEX `fk_d07_tipo_metodo_m_r15_verificador_local_m_idx` (`d07_cdempresa`,  ASC, `d07_cdtipometodo`,  ASC),
-INDEX `fk_d08_frequencia_m_r15_verificador_local_m_idx` (`d08_cdempresa`,  ASC, `d08_cdfrequencia`,  ASC),
-INDEX `fk_p01_verificador_m_verificador_local_m_idx` (`p01_cdempresa`,  ASC, `p01_cdverificador`,  ASC, `p01_cdtipoverificador`,  ASC),
-
-	
+FOREIGN KEY(r15_cdempresa, r15_cdlocal1, r15_cdlocal2, r15_cdlocal3) REFERENCES d05_local3_m(d04_cdempresa, d04_cdlocal1, d04_cdlocal2,d04_cdlocal3),
+FOREIGN KEY(r15_cdempresa, r15_cdamostragem) REFERENCES d06_amostragem_m(d06_cdempresa, d06_cdamostragem),
+FOREIGN KEY(r15_cdempresa, r15_cdtipodemetodo) REFERENCES d07_tipo_metodo_m(d07_cdempresa, d07_cdtipodemetodo),
+FOREIGN KEY(r15_cdempresa, r15_cdfrequencia) REFERENCES d08_frequencia_m(d08_cdempresa, d08_cdfrequencia),
+FOREIGN KEY(r15_cdempresa, r15_cdverificador, r15_cdtipoverificador) REFERENCES p01_verificador_m(p01_cdempresa, p01_cdverificador, p01_cdtipoverificador)
 
 ) Engine=InnoDB;
 
