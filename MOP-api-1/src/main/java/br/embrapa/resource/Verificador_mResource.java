@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.embrapa.model.Verificardor_m;
+import br.embrapa.model.Verificador_m;
 import br.embrapa.repository.Verificador_mRepository;
 
 @RestController
@@ -18,7 +18,7 @@ public class Verificador_mResource {
 	private Verificador_mRepository verificador_mRepository;
 	
 	@GetMapping
-	public List<Verificardor_m> Listar(){
+	public List<Verificador_m> Listar(){
 		return verificador_mRepository.findAll();
 	}
 }
