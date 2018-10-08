@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="p01_verificador_m")
-public class Verificardor_m {
+public class Verificador_m {
 
 	@Id
 	@Column(name="p01_cdverificador")
@@ -119,7 +119,7 @@ public class Verificardor_m {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Verificardor_m other = (Verificardor_m) obj;
+		Verificador_m other = (Verificador_m) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
