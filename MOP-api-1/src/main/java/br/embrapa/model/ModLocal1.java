@@ -2,25 +2,28 @@ package br.embrapa.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="d20_nivel_avaliacao")
-public class CadNivelDeAvaliacao {
-
+@Table(name="d03_local1_m")
+public class ModLocal1 {
+	
 	@Id
-	@Column(name="d20_cdnivelavaliacao")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="d03_cdlocal1")
 	private Long codigo;
 	
-	@Column(name="d20_nmnivelavaliacao")
-	private String nmnivelavaliacao;
+	@ManyToOne
+	@JoinColumn(name="d03_cdempresa")
+	private CadEmpresa cadEmpresa;
 	
-	@Column(name="d20_sigla")
-	private String sigla;
-	
-	@Column(name="d20_txdescricao")
-	private String txdescricao;
+	@Column(name="d03_nmlocal1")
+	private String nmlocal1;
 
 	public Long getCodigo() {
 		return codigo;
@@ -30,28 +33,20 @@ public class CadNivelDeAvaliacao {
 		this.codigo = codigo;
 	}
 
-	public String getNmnivelavaliacao() {
-		return nmnivelavaliacao;
+	public CadEmpresa getCadEmpresa() {
+		return cadEmpresa;
 	}
 
-	public void setNmnivelavaliacao(String nmnivelavaliacao) {
-		this.nmnivelavaliacao = nmnivelavaliacao;
+	public void setCadEmpresa(CadEmpresa cadEmpresa) {
+		this.cadEmpresa = cadEmpresa;
 	}
 
-	public String getSigla() {
-		return sigla;
+	public String getNmlocal1() {
+		return nmlocal1;
 	}
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
-	}
-
-	public String getTxdescricao() {
-		return txdescricao;
-	}
-
-	public void setTxdescricao(String txdescricao) {
-		this.txdescricao = txdescricao;
+	public void setNmlocal1(String nmlocal1) {
+		this.nmlocal1 = nmlocal1;
 	}
 
 	@Override
@@ -70,7 +65,7 @@ public class CadNivelDeAvaliacao {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CadNivelDeAvaliacao other = (CadNivelDeAvaliacao) obj;
+		ModLocal1 other = (ModLocal1) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -78,8 +73,10 @@ public class CadNivelDeAvaliacao {
 			return false;
 		return true;
 	}
-
-
+	
+	
+	
+	
 	
 	
 	
