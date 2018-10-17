@@ -1,5 +1,8 @@
 package br.embrapa.model;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.time.LocalDate;
 
 @Entity
 @Table(name="d18_monitoramento")
@@ -30,7 +32,7 @@ public class AppMonitoramento {
 	private CadTipoDeVerificador cdtipoverificador;
 	
 	@Column(name="d18_dtcriacao")
-	private LocalDate dtcriacao;
+	Date dtcriacao;
 	
 	@Column(name="d18_txlocal")
 	private String txlocal;
@@ -67,11 +69,13 @@ public class AppMonitoramento {
 		this.cdtipoverificador = cdtipoverificador;
 	}
 
-	public LocalDate getDtcriacao() {
-		return dtcriacao;
+	public String getDtcriacao() {
+		
+		String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(dtcriacao);
+		return timeStamp;
 	}
 
-	public void setDtcriacao(LocalDate dtcriacao) {
+	public void setDtcriacao(Date dtcriacao) {
 		this.dtcriacao = dtcriacao;
 	}
 
