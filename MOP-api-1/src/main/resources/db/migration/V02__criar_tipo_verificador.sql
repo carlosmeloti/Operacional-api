@@ -1,4 +1,4 @@
-CREATE TABLE d02_tipo_verificador (
+﻿CREATE TABLE d02_tipo_verificador (
 	d02_cdtipoverificador BIGINT(20) AUTO_INCREMENT,
 	d02_nmtipoverificador VARCHAR(200),
 	d02_nrniveis int(10),

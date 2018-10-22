@@ -1,5 +1,6 @@
 package br.embrapa.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -32,10 +33,10 @@ public class AppAvaliacao {
 	private String nmavaliacao;
 	
 	@Column(name="d19_dtinicio")
-	private Date d19_dtinicio;
+	private Date dtinicio;
 	
 	@Column(name="d19_dtfim")
-	private Date d19_dtfim;
+	private Date dtfim;
 
 	public Long getCodigo() {
 		return codigo;
@@ -69,20 +70,22 @@ public class AppAvaliacao {
 		this.nmavaliacao = nmavaliacao;
 	}
 
-	public Date getD19_dtinicio() {
-		return d19_dtinicio;
+	public String getDtinicio() {
+		String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(dtinicio);
+		return timeStamp;
 	}
 
-	public void setD19_dtinicio(Date d19_dtinicio) {
-		this.d19_dtinicio = d19_dtinicio;
+	public void setDtinicio(Date dtinicio) {
+		this.dtinicio = dtinicio;
 	}
 
-	public Date getD19_dtfim() {
-		return d19_dtfim;
+	public String getDtfim() {
+		String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(dtfim);
+		return timeStamp;
 	}
 
-	public void setD19_dtfim(Date d19_dtfim) {
-		this.d19_dtfim = d19_dtfim;
+	public void setDtfim(Date dtfim) {
+		this.dtfim = dtfim;
 	}
 
 	@Override
