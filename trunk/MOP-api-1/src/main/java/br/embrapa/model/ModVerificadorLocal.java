@@ -2,24 +2,34 @@ package br.embrapa.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-
+@Entity
 @Table(name="r15_verificador_local_m")
 public class ModVerificadorLocal {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private long id;
+	
 	@ManyToOne
 	@JoinColumn(name="r15_cdempresa")
 	private Verificador_m cadEmpresa;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="r15_cdverificador")
 	private Verificador_m codigo;
 	
 	@ManyToOne
-	@JoinColumn(name="r15_cdverificador")
+	@JoinColumn(name="r15_cdtipoverificador")
 	private Verificador_m cdtipoverificador;
 	
 	@ManyToOne
@@ -48,6 +58,10 @@ public class ModVerificadorLocal {
 	@ManyToOne
 	@JoinColumn(name="r15_cdamostragem")
 	private CadAmostragem cdamostragem;
+
+	
+	
+	
 
 	public Verificador_m getCadEmpresa() {
 		return cadEmpresa;
@@ -128,8 +142,29 @@ public class ModVerificadorLocal {
 	public void setCdamostragem(CadAmostragem cdamostragem) {
 		this.cdamostragem = cdamostragem;
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ModVerificadorLocal other = (ModVerificadorLocal) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 	
 	
 	

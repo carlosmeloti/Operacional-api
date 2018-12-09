@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.embrapa.model.ModVerificadorLocal;
-import br.embrapa.model.Verificador_m;
 import br.embrapa.repository.ModVerificadorLocalRepository;
-
 
 @RestController
 @RequestMapping("/modverificadorlocal")
@@ -23,4 +21,5 @@ public class ModVerificadorLocalResource {
 	public List<ModVerificadorLocal> Listar(){
 		return modVerificadorLocalRepository.findAll();
 	}
+	
 }
