@@ -7,8 +7,8 @@
 
 
 PRIMARY KEY (d04_cdempresa,d04_cdlocal1,d04_cdlocal2),
-FOREIGN KEY(d04_cdempresa, d04_cdlocal1) REFERENCES d03_local1_m(d03_cdempresa, d03_cdlocal1)
-
+KEY `fk_d03_cdempresa_d03_local1_m_idx` (`d04_cdempresa`),
+KEY `fk_d03_cdlocal1_d03_local1_m_idx` (`d04_cdlocal1`)
 ) Engine=InnoDB;
 
 INSERT INTO d04_local2_m (d04_cdempresa, d04_cdlocal1, d04_cdlocal2, d04_nmlocal2) VALUES(1, 1, 0, '-');

@@ -7,11 +7,12 @@ CREATE TABLE d11_nivel2_m(
 
 
 PRIMARY KEY (d11_cdempresa,d11_cdnivel1,d11_cdnivel2),
-FOREIGN KEY(d11_cdempresa, d11_cdnivel1) REFERENCES d10_nivel1_m(d10_cdempresa, d10_cdnivel1)
+KEY `fk_d10_cdempresa_d10_nivel1_m_idx` (`d11_cdempresa`),
+KEY `fk_d10_cdnivel1_d10_nivel1_m_idx` (`d11_cdnivel1`)
 
 ) Engine=InnoDB;
 
-INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','1','PRÉ EXPLORATÓRIA');
-INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','2','EXPLORATÓRIA');
-INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','3','PERMANENTE E PÓS EXPLORATÓRIA');
+INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','1','PRï¿½ EXPLORATï¿½RIA');
+INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','2','EXPLORATï¿½RIA');
+INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','3','PERMANENTE E Pï¿½S EXPLORATï¿½RIA');
 INSERT INTO d11_nivel2_m (d11_cdempresa, d11_cdnivel1, d11_cdnivel2, d11_nmnivel2) VALUES ('1','1','4','-');
