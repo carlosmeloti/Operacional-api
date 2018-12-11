@@ -1,4 +1,4 @@
-package br.embrapa.model;
+	package br.embrapa.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
