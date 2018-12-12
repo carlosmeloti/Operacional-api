@@ -1,3 +1,5 @@
+ALTER DATABASE `MOPapi` CHARSET = Latin1 COLLATE = latin1_swedish_ci;;
+
 CREATE TABLE d24_empresa (
 	d24_cdempresa BIGINT(20) AUTO_INCREMENT,
 	d24_nmempresa VARCHAR(100),
