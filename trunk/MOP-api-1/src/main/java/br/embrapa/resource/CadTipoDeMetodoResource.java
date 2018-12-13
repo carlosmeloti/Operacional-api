@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +33,7 @@ public class CadTipoDeMetodoResource {
 	private CadTipoDeMetodoRepository cadTipoDeMetodoRepository;
 	
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADTIPODEMETODO') and #oauth2.hasScope('read')")
 	public List<CadTipoDeMetodo> Listar() {
 		return cadTipoDeMetodoRepository.findAll();
 	}
@@ -43,6 +45,7 @@ public class CadTipoDeMetodoResource {
 	private ApplicationEventPublisher publisher;
 	
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CADTIPODEMETODO') and #oauth2.hasScope('write')")
 	public ResponseEntity<CadTipoDeMetodo> criar(@RequestBody CadTipoDeMetodo cadTipoDeMetodo, HttpServletResponse response) {
 		CadTipoDeMetodo cadTipoDeMetodoSalva = cadTipoDeMetodoRepository.save(cadTipoDeMetodo);
 		
@@ -52,18 +55,21 @@ public class CadTipoDeMetodoResource {
 	}
 	
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADTIPODEMETODO') and #oauth2.hasScope('read')")
 	public CadTipoDeMetodo buscarPeloCodigo(@PathVariable Long codigo) {
 		return cadTipoDeMetodoRepository.findOne(codigo);
 		
 	}
 	
 	@DeleteMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_REMOVER_CADTIPODEMETODO') and #oauth2.hasScope('write')")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Long codigo) {
 		cadTipoDeMetodoRepository.delete(codigo);
 	}
 	
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CADTIPODEMETODO') and #oauth2.hasScope('write')")
 	public ResponseEntity<CadTipoDeMetodo> atualizar(@PathVariable Long codigo, @Valid @RequestBody CadTipoDeMetodo cadTipoDeMetodo) {
 		CadTipoDeMetodo cadTipoDeMetodoSalva = cadTipoDeMetodoService.atualizar(codigo, cadTipoDeMetodo);
 		return ResponseEntity.ok(cadTipoDeMetodoSalva);
