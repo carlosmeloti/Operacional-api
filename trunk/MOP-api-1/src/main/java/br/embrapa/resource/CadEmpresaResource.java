@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.embrapa.event.RecursoCriadoEvent;
+import br.embrapa.model.CadAmostragem;
 import br.embrapa.model.CadEmpresa;
 import br.embrapa.repository.CadEmpresaRepository;
 import br.embrapa.service.CadEmpresaService;
@@ -58,8 +59,9 @@ public class CadEmpresaResource {
 	
 	@GetMapping("/{codigo}")
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_EMPRESA') and #oauth2.hasScope('read')")
-	public CadEmpresa buscarPeloCodigo(@PathVariable Long codigo) {
-		return cadEmpresaRepository.findOne(codigo);
+	public ResponseEntity <CadEmpresa>buscarPeloCodigo(@PathVariable Long codigo) {
+		CadEmpresa cadEmpresa = cadEmpresaRepository.findOne(codigo);
+		return cadEmpresa != null ? ResponseEntity.ok(cadEmpresa) : ResponseEntity.notFound().build();
 		
 	}
 	

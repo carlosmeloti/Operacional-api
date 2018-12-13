@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.embrapa.event.RecursoCriadoEvent;
+import br.embrapa.model.CadEmpresa;
 import br.embrapa.model.CadFrequencia;
 import br.embrapa.repository.CadFrequenciaRepository;
 import br.embrapa.service.CadFrequenciaService;
@@ -57,8 +58,9 @@ public class CadFrequenciaResource {
 	
 	@GetMapping("/{codigo}")
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADFREQUENCIA') and #oauth2.hasScope('read')")
-	public CadFrequencia buscarPeloCodigo(@PathVariable Long codigo) {
-		return cadFrequenciaRepository.findOne(codigo);
+	public ResponseEntity <CadFrequencia>buscarPeloCodigo(@PathVariable Long codigo) {
+		CadFrequencia cadFrequencia = cadFrequenciaRepository.findOne(codigo);
+		return cadFrequencia != null ? ResponseEntity.ok(cadFrequencia) : ResponseEntity.notFound().build();
 		
 	}
 	
