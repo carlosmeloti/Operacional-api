@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.embrapa.event.RecursoCriadoEvent;
 import br.embrapa.model.CadAmostragem;
+import br.embrapa.model.CadMaterial;
 import br.embrapa.repository.CadAmostragemRepository;
 import br.embrapa.service.CadAmostragemService;
 
@@ -57,8 +58,9 @@ public class CadAmostragemResource {
 	
 	@GetMapping("/{codigo}")
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADAMOSTRAGEM') and #oauth2.hasScope('read')")
-	public CadAmostragem buscarPeloCodigo(@PathVariable Long codigo) {
-		return cadAmostragemRepository.findOne(codigo);
+	public ResponseEntity <CadAmostragem>buscarPeloCodigo(@PathVariable Long codigo) {
+		CadAmostragem cadAmostragem = cadAmostragemRepository.findOne(codigo);
+		return cadAmostragem != null ? ResponseEntity.ok(cadAmostragem) : ResponseEntity.notFound().build();
 		
 	}
 	

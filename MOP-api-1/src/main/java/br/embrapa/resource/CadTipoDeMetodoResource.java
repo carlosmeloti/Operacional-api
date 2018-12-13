@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.embrapa.event.RecursoCriadoEvent;
+import br.embrapa.model.CadMaterial;
 import br.embrapa.model.CadTipoDeMetodo;
 import br.embrapa.repository.CadTipoDeMetodoRepository;
 import br.embrapa.service.CadTipoDeMetodoService;
@@ -56,8 +57,9 @@ public class CadTipoDeMetodoResource {
 	
 	@GetMapping("/{codigo}")
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADTIPODEMETODO') and #oauth2.hasScope('read')")
-	public CadTipoDeMetodo buscarPeloCodigo(@PathVariable Long codigo) {
-		return cadTipoDeMetodoRepository.findOne(codigo);
+	public ResponseEntity <CadTipoDeMetodo>buscarPeloCodigo(@PathVariable Long codigo) {
+		CadTipoDeMetodo cadTipoDeMetodo = cadTipoDeMetodoRepository.findOne(codigo);
+		return cadTipoDeMetodo != null ? ResponseEntity.ok(cadTipoDeMetodo) : ResponseEntity.notFound().build();
 		
 	}
 	
