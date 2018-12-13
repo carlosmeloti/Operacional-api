@@ -1,4 +1,4 @@
-ALTER DATABASE `MOPapi` CHARSET = Latin1 COLLATE = latin1_swedish_ci;;
+ALTER DATABASE `MOPapi` CHARSET = Latin1 COLLATE = latin1_swedish_ci;
 
 CREATE TABLE d24_empresa (
 	d24_cdempresa BIGINT(20) AUTO_INCREMENT,
@@ -15,7 +15,7 @@ CREATE TABLE d24_empresa (
 	
 )Engine=InnoDB;
 
-INSERT INTO d24_empresa (d24_nmempresa, d24_nmabreviado, d24_nrtelefone, d24_enderecocompleto, d24_txpessoacontato, d24_cnpjempresa, d24_diretorioarquivos) VALUES ('QoS 1','Q','ASDS','32224455','QoS','Q','ASDS');
+INSERT INTO d24_empresa (d24_nmempresa, d24_nmabreviado, d24_nrtelefone, d24_enderecocompleto, d24_txpessoacontato, d24_cnpjempresa, d24_diretorioarquivos) VALUES ('EMPRESA EXEMPLO','EXEMPLO','','','','','databases');
 INSERT INTO d24_empresa (d24_nmempresa, d24_nmabreviado, d24_nrtelefone, d24_enderecocompleto, d24_txpessoacontato, d24_cnpjempresa, d24_diretorioarquivos) VALUES ('QoS 2','Q','ASDS','32224455','QoS','Q','ASDS');
 INSERT INTO d24_empresa (d24_nmempresa, d24_nmabreviado, d24_nrtelefone, d24_enderecocompleto, d24_txpessoacontato, d24_cnpjempresa, d24_diretorioarquivos) VALUES ('QoS 3','Q','ASDS','32224455','QoS','Q','ASDS');
 INSERT INTO d24_empresa (d24_nmempresa, d24_nmabreviado, d24_nrtelefone, d24_enderecocompleto, d24_txpessoacontato, d24_cnpjempresa, d24_diretorioarquivos) VALUES ('QoS 4','Q','ASDS','32224455','QoS','Q','ASDS');

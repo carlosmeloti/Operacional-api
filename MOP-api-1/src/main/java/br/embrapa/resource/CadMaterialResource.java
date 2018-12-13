@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +33,7 @@ public class CadMaterialResource {
 	private CadMaterialRepository cadMaterialRepository;
 	
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADMATERIAL') and #oauth2.hasScope('read')")
 	public List<CadMaterial> Listar() {
 		return cadMaterialRepository.findAll();
 	}
@@ -43,6 +45,7 @@ public class CadMaterialResource {
 	private ApplicationEventPublisher publisher;
 	
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CADMATERIAL') and #oauth2.hasScope('write')")
 	public ResponseEntity<CadMaterial> criar(@RequestBody CadMaterial cadMaterial, HttpServletResponse response) {
 		CadMaterial cadMaterialSalva = cadMaterialRepository.save(cadMaterial);
 		
@@ -52,6 +55,7 @@ public class CadMaterialResource {
 	}
 	
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CADMATERIAL') and #oauth2.hasScope('read')")
 	public CadMaterial buscarPeloCodigo(@PathVariable Long codigo) {
 		return cadMaterialRepository.findOne(codigo);
 		
@@ -59,11 +63,13 @@ public class CadMaterialResource {
 	
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasAuthority('ROLE_REMOVER_CADMATERIAL') and #oauth2.hasScope('write')")
 	public void remover(@PathVariable Long codigo) {
 		cadMaterialRepository.delete(codigo);
 	}
 	
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CADMATERIAL') and #oauth2.hasScope('write')")
 	public ResponseEntity<CadMaterial> atualizar(@PathVariable Long codigo, @Valid @RequestBody CadMaterial cadMaterial) {
 		CadMaterial cadMaterialSalva = cadMaterialService.atualizar(codigo, cadMaterial);
 		return ResponseEntity.ok(cadMaterialSalva);
